@@ -4,15 +4,18 @@ function In(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.toggle();
+    const index = e.target.closest('li').className;
+    props.toggle(index);
   }
 
   const handleTextChange = e => {
-    props.onTextChange(e.target);
+    const index = e.target.closest('li').className;
+    props.onTextChange(e.target, index);
   }
 
   const handleCheckChange = e => {
-    props.onCheckChange(e.target);
+    const index = e.target.closest('li').className;
+    props.onCheckChange(e.target, index);
   }
 
   return (

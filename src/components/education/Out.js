@@ -2,8 +2,9 @@ function Out(props) {
 
   const { school, title, start, end, ongoing } = props.data;
 
-  const handleEdit = () => {
-    props.toggle();
+  const handleEdit = e => {
+    const index = e.target.closest('li').className;
+    props.toggle(index);
   }
 
   let endContent;

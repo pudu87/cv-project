@@ -9,53 +9,88 @@ class Education extends React.Component {
     this.toggleContent = this.toggleContent.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.renderComponent = this.renderComponent.bind(this);
+    this.addComponent = this.addComponent.bind(this);
 
     this.state = {
-      edit: false,
-      school: 'Thunderbolt School',
-      title: 'Electric Engineer',
-      start: '2017',
-      end: '2019',
-      ongoing: false
+      educations: [{
+        edit: false,
+        school: 'Thunderbolt School',
+        title: 'Electric Engineer',
+        start: '2017',
+        end: '2019',
+        ongoing: false
+      }]
     };
   }
 
-  toggleContent() {
+  toggleContent(index) {
+    let educations = [...this.state.educations];
+    educations[index].edit = !educations[index].edit;
     this.setState({
-      edit: !this.state.edit
+      educations: educations
     })
   }
 
-  handleTextChange(data) {
+  handleTextChange(data, index) {
+    let educations = [...this.state.educations];
+    educations[index][data.name] = data.value;
     this.setState({
-      [data.name]: data.value
+      educations: educations
     })
   }
 
-  handleCheckChange(data) {
-    console.log(data)
+  handleCheckChange(data, index) {
+    let educations = [...this.state.educations];
+    educations[index][data.name] = data.checked;
     this.setState({
-      [data.name]: data.checked
+      educations: educations
     })
   }
 
-  render() {
-    let content;
-    if (this.state.edit) {
-      content = <In 
-        data={this.state} 
+  renderComponent(index) {
+    if (this.state.educations[index].edit) {
+      return <In
+        data={this.state.educations[index]} 
         toggle={this.toggleContent}
         onTextChange={this.handleTextChange}
         onCheckChange={this.handleCheckChange} />;
     } else {
-      content = <Out 
-        data={this.state} 
+      return <Out
+        data={this.state.educations[index]} 
         toggle={this.toggleContent} />;
     }
+  }
 
+  addComponent() {
+    const newComponent = {
+      edit: true,
+      school: '',
+      title: '',
+      start: '',
+      end: '',
+      ongoing: false
+    }
+    this.setState({
+      educations: this.state.educations.concat(newComponent)
+    })
+  }
+
+  render() {
     return (
       <section className="Education">
-        {content}
+        <ul>
+          {this.state.educations.map((_, index) => {
+            return (
+              <li key={index} className={index}> 
+                {this.renderComponent(index)} 
+              </li>
+            )
+          })}
+          <li>
+            <button onClick={this.addComponent}> Add </button>
+          </li>
+        </ul>
       </section>
     );
   }
