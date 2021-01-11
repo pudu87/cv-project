@@ -40,12 +40,43 @@ input[type='submit']:hover {
 ul,
 form {
   display: grid;
-  grid-template-rows: repeat(3, 50px);
   align-items: center;
+}
+.General {
+  ul,
+  form {
+    grid-template-rows: repeat(3, 50px);
+  }
+}
+.Education {
+  form {
+    grid-template-rows: repeat(3, minmax(50px, auto));
+  }
+  ul {
+    grid-template-rows: repeat(4, 50px)
+  }
 }
 li,
 label {
   display: grid;
   grid-template-columns: 100px 200px;
   align-items: center;
+}
+.dates {
+  display: grid;
+  grid-template-columns: 200px 100px;
+}
+.start-end {
+  display: grid;
+  grid-template-rows: repeat(2, 50px);
+}
+.start-end > label {
+  grid-template-columns: 100px 100px;
+}
+.ongoing {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2em;
+  justify-items: center;
+  align-content: center;
 }

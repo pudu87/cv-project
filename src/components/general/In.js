@@ -7,8 +7,8 @@ function In(props) {
     props.toggle();
   }
 
-  const handleInputChange = e => {
-    props.onInputChange(e.target);
+  const handleTextChange = e => {
+    props.onTextChange(e.target);
   }
 
   return (
@@ -20,7 +20,7 @@ function In(props) {
             type='text' 
             name='name' 
             value={name}
-            onChange={handleInputChange}/>
+            onChange={handleTextChange}/>
         </label>
         <label>
           <span>Email:</span>
@@ -28,15 +28,15 @@ function In(props) {
             type='email' 
             name='email' 
             value={email}
-            onChange={handleInputChange}/>
+            onChange={handleTextChange}/>
         </label>
         <label>
           <span>Phone:</span>
           <input 
             type='tel' 
-            name='tel' 
+            name='phone' 
             value={phone}
-            onChange={handleInputChange}/>
+            onChange={handleTextChange}/>
         </label>
         <input 
           type='submit' 

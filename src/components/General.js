@@ -7,7 +7,7 @@ class General extends React.Component {
     super(props);
 
     this.toggleContent = this.toggleContent.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
 
     this.state = {
       edit: false,
@@ -23,7 +23,7 @@ class General extends React.Component {
     })
   }
 
-  handleInputChange(data) {
+  handleTextChange(data) {
     this.setState({
       [data.name]: data.value
     })
@@ -35,7 +35,7 @@ class General extends React.Component {
       content = <In 
         data={this.state} 
         toggle={this.toggleContent}
-        onInputChange={this.handleInputChange} />;
+        onTextChange={this.handleTextChange} />;
     } else {
       content = <Out 
         data={this.state} 
