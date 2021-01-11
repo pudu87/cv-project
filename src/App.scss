@@ -1,3 +1,5 @@
+// GENERAL
+
 #app {
   font-size: 14px;
   box-sizing: border-box;
@@ -14,7 +16,7 @@ ul {
   margin: 0;
 }
 
-/* BUTTONS */
+// BUTTONS
 
 button,
 input[type='submit'] {
@@ -32,6 +34,8 @@ button:hover,
 input[type='submit']:hover {
   cursor: pointer;
 }
+
+// COMPONENTS
 
 ul,
 form {

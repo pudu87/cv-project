@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import General from './components/General'
 import Education from './components/Education'
 import Experience from './components/Experience'
