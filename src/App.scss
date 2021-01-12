@@ -11,7 +11,7 @@ section {
   background-color: #eee;
 }
 ul {
-  list-style: none;
+  list-style-type: none;
   padding-left: 0;
   margin: 0;
 }
@@ -41,20 +41,6 @@ form {
   display: grid;
   align-items: center;
 }
-.General {
-  ul,
-  form {
-    grid-template-rows: repeat(3, 50px);
-  }
-}
-.Education {
-  form {
-    grid-template-rows: repeat(3, minmax(50px, auto));
-  }
-  ul {
-    grid-template-rows: repeat(4, 50px)
-  }
-}
 li,
 label {
   display: grid;
@@ -62,14 +48,48 @@ label {
   align-items: center;
 }
 
+// GENERAL
+
+.General {
+  ul,
+  form {
+    grid-template-rows: repeat(3, 50px);
+  }
+}
+
 // EDUCATION + EXPERIENCE
 
 .Education,
 .Experience {
-  > ul >li:last-child {
+  > ul {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-wrap: wrap;
+    > li {
+      display: block;
+      margin: 10px;
+      padding: 5px;
+      border: 1px #bbb solid;
+      background-color: #ddd;
+    }
+    >li:last-child {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+  }
+}
+.Education {
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    > li {
+      display: block;
+      width: 310px;
+      margin: 10px;
+      padding: 5px;
+      border: 1px #bbb solid;
+      background-color: #ddd;
+    }
   }
 }
 .dates {
@@ -97,6 +117,7 @@ label {
 }
 svg {
   color: #555;
+  margin-right: 10px;
 }
 svg:hover {
   cursor: pointer;
@@ -106,16 +127,59 @@ svg:hover {
 // EDUCATION
 
 .Education {
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
-    > li {
-      display: block;
-      width: 310px;
-      margin: 10px;
-      padding: 5px;
-      border: 1px #bbb solid;
-      background-color: #ddd;
+  form {
+    grid-template-rows: repeat(3, minmax(50px, auto));
+  }
+  ul {
+    grid-template-rows: repeat(4, 50px)
+  }
+}
+.Education > ul > li {
+  width: 310px;
+}
+
+// EXPERIENCE
+
+.Experience {
+  > ul > li {
+    width: 620px;
+    > div,
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 305px);
+      gap: 10px;
+      align-items: start;
     }
+  }
+}
+.Experience {
+  form > .other-data {
+    display: grid;
+    grid-template-rows: repeat(3, minmax(50px, auto));
+  }
+  ul {
+    grid-template-rows: repeat(4, 50px)
+  }
+}
+.task-data {
+  display: block;
+  p {
+    height: 50px;
+    margin: 0;
+    display: grid;
+    align-content: center;
+  }
+  ul {
+    display: block;
+  }
+  li {
+    list-style: disc outside none;
+    display: list-item;
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+  input {
+    margin: 5px;
+    height: 20px;
   }
 }
