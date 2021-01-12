@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 function In(props) {
 
   const { school, title, start, end, ongoing } = props.data;
@@ -16,6 +18,11 @@ function In(props) {
   const handleCheckChange = e => {
     const index = e.target.closest('li').className;
     props.onCheckChange(e.target, index);
+  }
+
+  const handleDelete = e => {
+    const index = e.target.closest('li').className;
+    props.onDelete(index);
   }
 
   return (
@@ -65,9 +72,14 @@ function In(props) {
               onChange={handleCheckChange}/>
           </label>
         </div>
-        <input 
-          type='submit' 
-          value='Confirm'/>
+        <div className='options'>
+          <input 
+            type='submit' 
+            value='Confirm'/>
+          <FontAwesomeIcon 
+            icon='trash-alt' 
+            onClick={handleDelete} />
+        </div>
       </form>
     </div>
   );

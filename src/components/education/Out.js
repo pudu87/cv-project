@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 function Out(props) {
 
   const { school, title, start, end, ongoing } = props.data;
@@ -5,6 +7,11 @@ function Out(props) {
   const handleEdit = e => {
     const index = e.target.closest('li').className;
     props.toggle(index);
+  }
+  
+  const handleDelete = e => {
+    const index = e.target.closest('li').className;
+    props.onDelete(index);
   }
 
   let endContent;
@@ -41,7 +48,12 @@ function Out(props) {
         </li>
         {endContent}
       </ul>
-      <button onClick={handleEdit}> Edit </button>
+      <div className='options'>
+        <button onClick={handleEdit}> Edit </button>
+        <FontAwesomeIcon 
+          icon='trash-alt' 
+          onClick={handleDelete}/>
+      </div>
     </div>
   );
 }

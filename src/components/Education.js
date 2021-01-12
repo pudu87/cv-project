@@ -9,6 +9,7 @@ class Education extends React.Component {
     this.toggleContent = this.toggleContent.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.renderComponent = this.renderComponent.bind(this);
     this.addComponent = this.addComponent.bind(this);
 
@@ -16,7 +17,7 @@ class Education extends React.Component {
       educations: [{
         edit: false,
         school: 'Thunderbolt School',
-        title: 'Electric Engineer',
+        title: 'Electrical Engineer',
         start: '2017',
         end: '2019',
         ongoing: false
@@ -48,17 +49,28 @@ class Education extends React.Component {
     })
   }
 
+  handleDelete(index) {
+    let educations = this.state.educations.filter((_, i) => {
+      return Number(index) !== i;
+    });
+    this.setState({
+      educations: educations
+    })
+  }
+
   renderComponent(index) {
     if (this.state.educations[index].edit) {
       return <In
         data={this.state.educations[index]} 
         toggle={this.toggleContent}
         onTextChange={this.handleTextChange}
-        onCheckChange={this.handleCheckChange} />;
+        onCheckChange={this.handleCheckChange}
+        onDelete={this.handleDelete} />;
     } else {
       return <Out
         data={this.state.educations[index]} 
-        toggle={this.toggleContent} />;
+        toggle={this.toggleContent} 
+        onDelete={this.handleDelete} />;
     }
   }
 
