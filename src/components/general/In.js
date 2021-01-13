@@ -14,24 +14,24 @@ function In(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>
-          <span>Name:</span>
+        <label className='item'>
+          <span className='descr'>Name:</span>
           <input 
             type='text' 
             name='name' 
             value={name}
             onChange={handleTextChange}/>
         </label>
-        <label>
-          <span>Email:</span>
+        <label className='item'>
+          <span className='descr'>Email:</span>
           <input 
             type='email' 
             name='email' 
             value={email}
             onChange={handleTextChange}/>
         </label>
-        <label>
-          <span>Phone:</span>
+        <label className='item'>
+          <span className='descr'>Phone:</span>
           <input 
             type='tel' 
             name='phone' 

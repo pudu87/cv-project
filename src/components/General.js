@@ -44,6 +44,7 @@ class General extends React.Component {
 
     return (
       <section className="General">
+        <h1>Personal Details</h1>
         {content}
       </section>
     );

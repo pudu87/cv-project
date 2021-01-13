@@ -16,7 +16,7 @@ class Education extends React.Component {
     this.state = {
       educations: [{
         edit: false,
-        school: 'Thunderbolt School',
+        school: 'Thunderbolt University',
         title: 'Electrical Engineer',
         start: '2017',
         end: '2019',
@@ -91,6 +91,7 @@ class Education extends React.Component {
   render() {
     return (
       <section className="Education">
+        <h1>Education</h1>
         <ul>
           {this.state.educations.map((_, index) => {
             return (

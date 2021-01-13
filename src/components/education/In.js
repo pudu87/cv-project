@@ -28,16 +28,16 @@ function In(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>
-          <span>School:</span>
+        <label className='item'>
+          <span className='descr'>School:</span>
           <input 
             type='text' 
             name='school' 
             value={school}
             onChange={handleTextChange}/>
         </label>
-        <label>
-          <span>Title:</span>
+        <label className='item'>
+          <span className='descr'>Title:</span>
           <input 
             type='text' 
             name='title' 
@@ -46,16 +46,16 @@ function In(props) {
         </label>
         <div className='dates'>
           <div className='start-end'>
-            <label>
-              <span>Start:</span>
+            <label className='item'>
+              <span className='descr'>Start:</span>
               <input 
                 type='text' 
                 name='start' 
                 value={start}
                 onChange={handleTextChange}/>
             </label>
-            <label>
-              <span>End:</span>
+            <label className='item'>
+              <span className='descr'>End:</span>
               <input 
                 type='text' 
                 name='end' 
@@ -64,7 +64,7 @@ function In(props) {
             </label>
           </div>
           <label className='ongoing'>
-            <span>Ongoing?</span>
+            <span className='descr'>Ongoing?</span>
             <input
               type='checkbox' 
               name='ongoing' 

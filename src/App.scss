@@ -1,29 +1,52 @@
-// GENERAL
+// VARIABLES
 
-#app {
+$row-height: 35px;
+$li-margin: 5px;
+
+// GENERAL CSS
+
+.App {
   font-size: 14px;
   box-sizing: border-box;
+  font-family: Georgia, serif;
+  width: 800px;
+  margin: auto;
+  color: #333;
+  * {
+    box-sizing: border-box;
+  }
 }
 section {
-  padding: 20px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   border: 1px #ccc solid;
+  border-radius: 5px;
   background-color: #eee;
+}
+h1 {
+  text-decoration: underline;
+  text-shadow: 2px 2px #ccc;
+  margin: 5px 0;
 }
 ul {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
 }
+.descr {
+  font-variant: small-caps;
+  font-weight: bold;
+}
 
 // BUTTONS
 
 button,
 input[type='submit'] {
-  width: 100px;
+  width: 80px;
   padding-top: .5em;
   padding-bottom: .5em;
-  font-size: .8em;
+  font-size: .6em;
+  text-transform: uppercase;
   font-weight: bold;
   border: 1px solid #aaa;
   border-radius: .4em;
@@ -32,6 +55,8 @@ input[type='submit'] {
 button:hover,
 input[type='submit']:hover {
   cursor: pointer;
+  background-color: #eee;
+  color: #000;
 }
 
 // COMPONENTS
@@ -41,19 +66,24 @@ form {
   display: grid;
   align-items: center;
 }
-li,
-label {
+.item {
   display: grid;
-  grid-template-columns: 100px 200px;
+  grid-template-columns: 85px auto;
   align-items: center;
 }
 
-// GENERAL
+// GENERAL (COMPONENT)
 
 .General {
+  > div {
+    margin-left: 15px;
+  }
   ul,
   form {
-    grid-template-rows: repeat(3, 50px);
+    grid-template-rows: repeat(3, $row-height);
+    label input {
+      width: 267px;
+    }
   }
 }
 
@@ -64,11 +94,13 @@ label {
   > ul {
     display: flex;
     flex-wrap: wrap;
+    margin: 0px 5px;
     > li {
-      display: block;
-      margin: 10px;
+      margin: 0 $li-margin;
+      margin-top: $li-margin * 2;
       padding: 5px;
       border: 1px #bbb solid;
+      border-radius: 3px;
       background-color: #ddd;
     }
     >li:last-child {
@@ -78,30 +110,19 @@ label {
     }
   }
 }
-.Education {
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
-    > li {
-      display: block;
-      width: 310px;
-      margin: 10px;
-      padding: 5px;
-      border: 1px #bbb solid;
-      background-color: #ddd;
-    }
-  }
-}
 .dates {
   display: grid;
-  grid-template-columns: 200px 100px;
+  grid-template-columns: 60% 40%;
 }
 .start-end {
   display: grid;
-  grid-template-rows: repeat(2, 50px);
+  grid-template-rows: repeat(2, $row-height);
 }
 .start-end > label {
-  grid-template-columns: 100px 100px;
+  grid-template-columns: 85px auto;
+  input {
+    overflow: hidden;
+  }
 }
 .ongoing {
   display: grid;
@@ -128,25 +149,28 @@ svg:hover {
 
 .Education {
   form {
-    grid-template-rows: repeat(3, minmax(50px, auto));
+    grid-template-rows: repeat(3, minmax($row-height, auto));
   }
   ul {
-    grid-template-rows: repeat(4, 50px)
+    grid-template-rows: repeat(4, $row-height)
   }
 }
-.Education > ul > li {
-  width: 310px;
+.Education {
+  > ul > li {
+    display: block;
+    width: calc(50% - (#{$li-margin} * 2));
+  }
 }
 
 // EXPERIENCE
 
 .Experience {
   > ul > li {
-    width: 620px;
+    width: calc(100% - #{$li-margin});
     > div,
     form {
       display: grid;
-      grid-template-columns: repeat(2, 305px);
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       align-items: start;
     }
@@ -155,16 +179,20 @@ svg:hover {
 .Experience {
   form > .other-data {
     display: grid;
-    grid-template-rows: repeat(3, minmax(50px, auto));
+    grid-template-rows: repeat(3, minmax($row-height, auto));
   }
   ul {
-    grid-template-rows: repeat(4, 50px)
+    grid-template-rows: repeat(4, $row-height)
   }
+}
+.other-data {
+  padding-right: 5px;
+  border-right: 1px solid #ccc;
 }
 .task-data {
   display: block;
   p {
-    height: 50px;
+    height: $row-height;
     margin: 0;
     display: grid;
     align-content: center;
@@ -179,7 +207,9 @@ svg:hover {
     margin-bottom: 1em;
   }
   input {
-    margin: 5px;
+    margin-bottom: 1px;
+    margin-left: 5px;
     height: 20px;
+    width: 90%;
   }
 }

@@ -17,15 +17,15 @@ function Out(props) {
   let endContent;
   if (!ongoing) {
     endContent = (
-      <li>
-        <span>End:</span>
+      <li className='item'>
+        <span className='descr'>End:</span>
         <span id='end'>{end}</span>
       </li>
     )
   } else {
     endContent = (
-      <li>
-        <span>End:</span>
+      <li className='item'>
+        <span className='descr'>End:</span>
         <span id='end'>...</span>
       </li>
     )
@@ -41,16 +41,16 @@ function Out(props) {
     <div>
       <div className='other-data'>
         <ul>
-          <li>
-            <span>Company:</span>
+          <li className='item'>
+            <span className='descr'>Company:</span>
             <span id='company'>{company}</span>
           </li>
-          <li>
-            <span>Title:</span>
+          <li className='item'>
+            <span className='descr'>Title:</span>
             <span id='title'>{title}</span>
           </li>
-          <li>
-            <span>Start:</span>
+          <li className='item'>
+            <span className='descr'>Start:</span>
             <span id='start'>{start}</span>
           </li>
           {endContent}
@@ -64,7 +64,7 @@ function Out(props) {
       </div>
       <div className='task-data'>
         <p>
-          <span>Tasks:</span>
+          <span className='descr'>Tasks:</span>
         </p>
         <ul>{taskItems}</ul>
       </div>

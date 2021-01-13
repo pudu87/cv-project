@@ -9,16 +9,16 @@ function Out(props) {
   return (
     <div>
       <ul>
-        <li>
-          <span>Name:</span>
+        <li className='item'>
+          <span className='descr'>Name:</span>
           <span id='name'>{name}</span>
         </li>
-        <li>
-          <span>Email:</span>
+        <li className='item'>
+          <span className='descr'>Email:</span>
           <span id='email'>{email}</span>
         </li>
-        <li>
-          <span>Phone:</span>
+        <li className='item'>
+          <span className='descr'>Phone:</span>
           <span id='phone'>{phone}</span>
         </li>
       </ul>
